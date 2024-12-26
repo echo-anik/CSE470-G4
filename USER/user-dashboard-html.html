@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelEase - User Dashboard</title>
+    <link rel="stylesheet" href="user-dashboard-css.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="logo.png" alt="TravelEase Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li class="active" data-section="profile">Profile</li>
+                    <li data-section="wishlist">Wishlist</li>
+                    <li data-section="bookings">Bookings</li>
+                    <li data-section="login-history">Login History</li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <section id="profile" class="section active">
+                <h1>User Profile</h1>
+                <div class="profile-details">
+                    <div class="profile-header">
+                        <img src="default-avatar.png" alt="Profile Picture" class="profile-pic">
+                        <div class="profile-info">
+                            <h2 id="user-fullname">John Doe</h2>
+                            <p id="user-email">john.doe@example.com</p>
+                        </div>
+                    </div>
+                    <form id="profile-form" class="profile-form">
+                        <div class="form-group">
+                            <label for="full_name">Full Name</label>
+                            <input type="text" id="full_name" name="full_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <button type="submit" class="btn-update">Update Profile</button>
+                    </form>
+                </div>
+            </section>
+
+            <section id="wishlist" class="section">
+                <h1>Travel Wishlist</h1>
+                <div class="wishlist-actions">
+                    <button id="add-wishlist-btn" class="btn-add">Add Wishlist Item</button>
+                </div>
+                <table id="wishlist-table">
+                    <thead>
+                        <tr>
+                            <th>Destination</th>
+                            <th>Travel Method</th>
+                            <th>Priority</th>
+                            <th>Date Added</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="wishlist-body">
+                        <!-- Wishlist items will be dynamically populated -->
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="bookings" class="section">
+                <h1>My Bookings</h1>
+                <table id="bookings-table">
+                    <thead>
+                        <tr>
+                            <th>Booking ID</th>
+                            <th>Destination</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bookings-body">
+                        <!-- Booking items will be dynamically populated -->
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="login-history" class="section">
+                <h1>Login History</h1>
+                <table id="login-history-table">
+                    <thead>
+                        <tr>
+                            <th>Login Time</th>
+                            <th>IP Address</th>
+                            <th>Device</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="login-history-body">
+                        <!-- Login history items will be dynamically populated -->
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <div id="add-wishlist-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Add Wishlist Item</h2>
+            <form id="add-wishlist-form">
+                <div class="form-group">
+                    <label for="destination">Destination</label>
+                    <input type="text" id="destination" name="destination" required>
+                </div>
+                <div class="form-group">
+                    <label for="travel-method">Travel Method</label>
+                    <select id="travel-method" name="travel_method" required>
+                        <option value="Flight">Flight</option>
+                        <option value="Train">Train</option>
+                        <option value="Car">Car</option>
+                        <option value="Bus">Bus</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="priority">Priority</label>
+                    <select id="priority" name="priority">
+                        <option value="LOW">Low</option>
+                        <option value="MEDIUM">Medium</option>
+                        <option value="HIGH">High</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="notes">Notes</label>
+                    <textarea id="notes" name="notes"></textarea>
+                </div>
+                <button type="submit" class="btn-add">Add Wishlist Item</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="user-dashboard.js"></script>
+</body>
+</html>
