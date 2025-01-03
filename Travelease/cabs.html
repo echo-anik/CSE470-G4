@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cabs</title>
+    <link rel="icon" href="cab.ico" type="image/x-icon">
+    <style>
+        /* Add background image and font settings */
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('image.jpg');
+            background-size: 150%;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Logo styling */
+        .logo {
+            position: absolute;
+            top: 10px; left: 10px;
+            font-size: 30px;
+            font-weight: bold;
+            color: #1d1f1d;
+            font-style: italic;
+            text-shadow: 2px 2px 5px #5e4f4f, 0 0 10px #414441, 0 0 15px #303330;
+            background: linear-gradient(to right, #ff5f6d, #ffc371);
+            padding: 3px;
+            border-radius: 3px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Login button styling */
+        .login-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .login-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Navbar styling */
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+            padding: 10px;
+            box-shadow: 0 4px 2px -2px gray;
+            border-radius: 25px;
+            margin-top: 60px;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            padding: 10px 15px;
+            margin: 0 5px;
+            border-radius: 15px;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+        }
+
+        .navbar .active {
+            color: #007bff;
+        }
+
+        /* Booking section styling */
+        .booking-section {
+            margin: 80px auto 20px auto;
+            width: 80%;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .booking-header {
+            font-size: 20px;
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .booking-form {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .booking-form div {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .booking-form label {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .booking-form input,
+        .booking-form select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .booking-form .btn-search {
+            grid-column: 1 / -1;
+            text-align: center;
+        }
+
+        .btn-search button {
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            background-color: #2e2f31;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+
+        .btn-search button:hover {
+            background-color: #111111;
+        }
+
+        /* Offers section styling */
+        .offers-section {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            width: 90%;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .offers-header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .offer-category {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .offer-category a {
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .offer-category a.active {
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 5px;
+        }
+
+        .offers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .offer-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .offer-card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .offer-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+
+        .offer-details {
+            color: #555;
+            font-size: 14px;
+        }
+
+        .offer-code {
+            font-size: 14px;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        .offer-button {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: bold;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .offer-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">Travelease</div>
+    <button class="login-btn">Login</button>
+
+    <div class="navbar">
+        <a href="#"><i class="fas fa-plane"></i> Flights</a>
+        <a href="#"><i class="fas fa-hotel"></i> Hotels</a>
+        <a href="#"><i class="fas fa-suitcase"></i> Holiday Packages</a>
+        <a href="#"><i class="fas fa-train"></i> Trains</a>
+        <a href="#"><i class="fas fa-bus"></i> Buses</a>
+        <a href="#" class="active"><i class="fas fa-taxi"></i> Cabs</a>
+        <a href="#"><i class="fas fa-headset"></i> Tour Assistance</a>
+    </div>
+
+    <div class="booking-section">
+        <div class="booking-header">Online Cab Booking</div>
+        <div class="booking-form">
+            <div>
+                <label for="from">From:</label>
+                <input type="text" id="from" placeholder="Enter pickup city">
+            </div>
+            <div>
+                <label for="to">To:</label>
+                <input type="text" id="to" placeholder="Enter destination city">
+            </div>
+            <div>
+                <label for="pickup-time">Pickup Time:</label>
+                <input type="time" id="pickup-time">
+            </div>
+            <div class="btn-search">
+                <button>Search</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="offers-section">
+        <div class="offers-header">Offers</div>
+        <div class="offer-category">
+            <a href="#" class="active">Cabs</a>
+            <a href="#">All Offers</a>
+            <a href="#">Hotels</a>
+            <a href="#">Flights</a>
+            <a href="#">Holidays</a>
+            <a href="#">Buses</a>
+            <a href="#">Trains</a>
+        </div>
+        <div class="offers-grid">
+            <div class="offer-card">
+                <img src="offer1.jpg" alt="Offer Image">
+                <div class="offer-title">Flat 5% Off on Airport Cabs</div>
+                <div class="offer-details">Code: AIRPORT5</div>
+                <button class="offer-button">Book Now</button>
+            </div>
+            <!-- Add more offer cards as needed -->
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+</html>
