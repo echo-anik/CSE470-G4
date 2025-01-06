@@ -18,25 +18,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $experience = $_POST['experience'];
     $role = $_POST['role'];
 
-    // Check if all fields are filled
+  
     if (empty($name) || empty($email) || empty($language_proficiency) || empty($living_country)
         || empty($living_city) || empty($age) || empty($experience) || empty($role)) {
         $error = "All fields are required!";
     } elseif ($age <= 10) {
         $error = "Age should be more than 10!";
     } else {
-        // Prepare the SQL query
+      
         $stmt = $conn->prepare("INSERT INTO guide_registration
             (name, email, language_proficiency, living_country, living_city, age, experience, role)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 
-        // Bind parameters
+    
         $stmt->bind_param("sssssiis", $name, $email, $language_proficiency, $living_country, $living_city,
                          $age, $experience, $role);
 
-        // Execute the query
+   
         if ($stmt->execute()) {
-            $success = "Registration successful!";  // Set success message
+            $success = "Registration successful!"; 
             // Redirect after 1 second
             echo "<script>
                     setTimeout(function() {
@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     }, 500);
                 </script>";
         } else {
-            $error = "Error: " . $stmt->error;  // Set error message
+            $error = "Error: " . $stmt->error;  
         }
 
         $stmt->close();
